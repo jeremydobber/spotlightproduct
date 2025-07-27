@@ -1,0 +1,29 @@
+#ek_productspotlight_block_home {
+  height: fit-content;
+  padding: 2rem;
+  box-shadow: inset 0 0 2rem gray;
+}
+
+#ek_productspotlight_container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+#ek_productspotlight_image_container {
+  display: block;
+  width: 50%;
+}
+
+#ek_productspotlight_image_container img {
+  max-width: 100%;
+  height: auto;
+}
+
+#ek_productspotlight_container .block_content {
+}
+
+#ek_productspotlight_container a {
+  font-size: 1.2rem;
+  font-style: italic;
+}

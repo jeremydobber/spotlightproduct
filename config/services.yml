@@ -1,0 +1,37 @@
+services:
+  _defaults:
+    public: true
+
+  # Demo configuration text form
+  prestashop.module.ek_productspotlight.form.type.productspotlight_text:
+    class: 'PrestaShop\Module\Ek_ProductSpotlight\Form\ProductspotlightFormType'
+    parent: "form.type.translatable.aware"
+    public: true
+    tags:
+      - { name: form.type }
+
+  prestashop.module.ek_productspotlight.form.productspotlight_text_data_configuration:
+    class: 'PrestaShop\Module\Ek_ProductSpotlight\Form\ProductspotlightTextDataConfiguration'
+    arguments: ["@prestashop.adapter.legacy.configuration"]
+
+  prestashop.module.ek_productspotlight.form.productspotlight_text_form_data_provider:
+    class: 'PrestaShop\Module\Ek_ProductSpotlight\Form\ProductspotlightTextFormDataProvider'
+    arguments:
+      - '@prestashop.module.ek_productspotlight.form.productspotlight_text_data_configuration'
+
+  prestashop.module.ek_productspotlight.form.productspotlight_text_form_data_handler:
+    class: 'PrestaShop\PrestaShop\Core\Form\Handler'
+    arguments:
+      - '@form.factory'
+      - '@prestashop.core.hook.dispatcher'
+      - '@prestashop.module.ek_productspotlight.form.productspotlight_text_form_data_provider'
+      - 'PrestaShop\Module\Ek_ProductSpotlight\Form\ProductspotlightFormType'
+      - 'Configuration'
+
+  PrestaShop\Module\Ek_ProductSpotlight\Controller\ProductspotlightController:
+    # Using autowire will inject services in the constructors automatically
+    autowire: true
+    # Using autoconfigure with controllers that extend AbstractController will handle method parameter injection and subscribed services
+    autoconfigure: true
+    # If your controller class doesn't extend AbstractController you should add this tag manually so you benefit from method parameters injection
+    tags: ['controller.service_arguments']
