@@ -1,5 +1,5 @@
 productspotlight_conf_form:
-  path: /ek_productspotlight/configuration
+  path: /ek_productspotlight/search
   methods: [GET, POST]
   defaults:
     _controller: 'PrestaShop\Module\Ek_ProductSpotlight\Controller\ProductspotlightController::index'

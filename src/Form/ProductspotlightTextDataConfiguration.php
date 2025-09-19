@@ -19,6 +19,7 @@
  * @copyright Since 2025 Jeremy Dobberman
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
+
 declare(strict_types=1);
 
 namespace PrestaShop\Module\Ek_ProductSpotlight\Form;
@@ -35,7 +36,7 @@ use PrestaShop\PrestaShop\Core\ConfigurationInterface;
  */
 final class ProductspotlightTextDataConfiguration implements DataConfigurationInterface
 {
-    public const EK_PRODUCTSPOTLIGHT_QUERY = 'EK_PRODUCTSPOTLIGHT_QUERY';
+    public const EK_PRODUCTSPOTLIGHT_PRODUCT = 'EK_PRODUCTSPOTLIGHT_PRODUCT';
 
     /**
      * @var ConfigurationInterface
@@ -51,7 +52,7 @@ final class ProductspotlightTextDataConfiguration implements DataConfigurationIn
     {
         $return = [];
 
-        $return['query'] = $this->configuration->get(static::EK_PRODUCTSPOTLIGHT_QUERY);
+        $return['product'] = $this->configuration->get(static::EK_PRODUCTSPOTLIGHT_PRODUCT);
         return $return;
     }
 
@@ -60,7 +61,7 @@ final class ProductspotlightTextDataConfiguration implements DataConfigurationIn
         $errors = [];
 
         if ($this->validateConfiguration($configuration)) {
-            $this->configuration->set(static::EK_PRODUCTSPOTLIGHT_QUERY, $configuration['query']);
+            $this->configuration->set(static::EK_PRODUCTSPOTLIGHT_PRODUCT, $configuration['product']);
         }
 
         /* Errors are returned here. */
@@ -74,6 +75,6 @@ final class ProductspotlightTextDataConfiguration implements DataConfigurationIn
      */
     public function validateConfiguration(array $configuration): bool
     {
-        return isset($configuration['query']);
+        return isset($configuration['product']);
     }
 }

@@ -19,6 +19,7 @@
  * @copyright Since 2025 Jeremy Dobberman
  * @license   https://opensource.org/licenses/OSL-3.0 Open Software License (OSL 3.0)
  */
+
 declare(strict_types=1);
 
 if (!defined('_PS_VERSION_')) {
@@ -32,8 +33,6 @@ use PrestaShop\PrestaShop\Adapter\Product\ProductColorsRetriever;
 
 class Ek_ProductSpotlight extends Module
 {
-    // private $templateFile;
-
     public function __construct()
     {
         $this->name = 'ek_productspotlight';
@@ -54,11 +53,14 @@ class Ek_ProductSpotlight extends Module
 
         $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Ek_ProductSpotlight.Admin');
 
-        if (!Configuration::get('MYMODULE_NAME')) {
+        if (!Configuration::get('EK_PRODUCTSPOTLIGHT_NAME')) {
             $this->warning = $this->trans('No name provided.', [], 'Modules.Ek_ProductSpotlight.Admin');
         }
+    }
 
-        // $this->templateFile = 'module:ps_productspotlight/views/templates/hook/ps_productspotlight.tpl';
+    public function isUsingNewTranslationSystem(): bool
+    {
+        return true;
     }
 
     public function install()
@@ -71,7 +73,7 @@ class Ek_ProductSpotlight extends Module
             parent::install()
             && $this->registerHook('displayHome')
             && $this->registerHook('actionFrontControllerSetMedia')
-            && Configuration::updateValue('MYMODULE_NAME', 'Product spotlight');
+            && Configuration::updateValue('EK_PRODUCTSPOTLIGHT_NAME', 'Product spotlight');
     }
 
     public function uninstall()
@@ -80,7 +82,7 @@ class Ek_ProductSpotlight extends Module
             parent::uninstall()
             && $this->unregisterHook('displayHome')
             && $this->unregisterHook('actionFrontControllerSetMedia')
-            && Configuration::deleteByName('MYMODULE_NAME');
+            && Configuration::deleteByName('EK_PRODUCTSPOTLIGHT_NAME');
     }
 
     public function getContent()
@@ -91,13 +93,12 @@ class Ek_ProductSpotlight extends Module
 
     public function hookDisplayHome($params)
     {
-        $product = $this->getProducts()[0];
+        $product = $this->getProductDetail()[0];
 
         // dd($product);
 
         $this->context->smarty->assign([
-            'ek_productspotlight_name' => Configuration::get('MYMODULE_NAME'),
-            // 'ek_productspotlight_link' => 'content/4-about-us' # Redirect to specific page works,
+            'ek_productspotlight_name' => Configuration::get('EK_PRODUCTSPOTLIGHT_NAME'),
             'ek_productspotlight_product' => $product,
         ]);
 
@@ -116,18 +117,11 @@ class Ek_ProductSpotlight extends Module
         );
     }
 
-    protected function getProducts()
+    protected function getProductDetail()
     {
-        /*
-        $sql = new \DbQuery();
-        $sql->select('*');
-        $sql->from('product');
-        $rawProducts = \Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-        */
-
-        $query = Configuration::get('EK_PRODUCTSPOTLIGHT_QUERY');
-
-        $rawProducts = Product::searchByName($this->context->language->id, $query);
+        $rawProducts = [];
+        $product = new Product(Configuration::get('EK_PRODUCTSPOTLIGHT_PRODUCT'), true, $this->context->language->id);
+        array_push($rawProducts, json_decode(json_encode($product), true));
 
         $assembler = new ProductAssembler($this->context);
 
@@ -142,14 +136,13 @@ class Ek_ProductSpotlight extends Module
             new ProductColorsRetriever(),
             $this->context->getTranslator()
         );
-
         // Now, we can present the products for the template.
         $products_for_template = [];
-
         $assembleInBulk = method_exists($assembler, 'assembleProducts');
         if ($assembleInBulk) {
             $rawProducts = $assembler->assembleProducts($rawProducts);
         }
+
         foreach ($rawProducts as $rawProduct) {
             $products_for_template[] = $presenter->present(
                 $presentationSettings,

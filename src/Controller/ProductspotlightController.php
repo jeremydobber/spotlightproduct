@@ -32,14 +32,6 @@ use PrestaShopBundle\Controller\Admin\PrestaShopAdminController;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-/*
-use PrestaShop\PrestaShop\Adapter\Image\ImageRetriever;
-use PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingPresenter;
-use PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductPresenterFactory;
-use PrestaShop\PrestaShop\Adapter\Product\PriceFormatter;
-use PrestaShop\PrestaShop\Adapter\Product\ProductColorsRetriever;
-use ProductAssembler;
-*/
 
 class ProductspotlightController extends PrestaShopAdminController
 {
@@ -65,50 +57,6 @@ class ProductspotlightController extends PrestaShopAdminController
 
         return $this->render('@Modules/ek_productspotlight/views/templates/admin/productspotlight_conf_form.html.twig', [
             'ProductspotlightForm' => $textForm->createView(),
-            // 'ProductList' => $product_list,
         ]);
     }
-
-    /*
-    protected function getProducts()
-    {
-        $sql = new \DbQuery();
-
-        $sql->select('*');
-        $sql->from('product');
-
-        $rawProducts = \Db::getInstance(_PS_USE_SQL_SLAVE_)->executeS($sql);
-
-        $assembler = new ProductAssembler($this->context);
-
-        $presenterFactory = new ProductPresenterFactory($this->context);
-        $presentationSettings = $presenterFactory->getPresentationSettings();
-        $presenter = new ProductListingPresenter(
-            new ImageRetriever(
-                $this->context->link
-            ),
-            $this->context->link,
-            new PriceFormatter(),
-            new ProductColorsRetriever(),
-            $this->context->getTranslator()
-        );
-
-        // Now, we can present the products for the template.
-        $products_for_template = [];
-
-        $assembleInBulk = method_exists($assembler, 'assembleProducts');
-        if ($assembleInBulk) {
-            $rawProducts = $assembler->assembleProducts($rawProducts);
-        }
-        foreach ($rawProducts as $rawProduct) {
-            $products_for_template[] = $presenter->present(
-                $presentationSettings,
-                ($assembleInBulk ? $rawProduct : $assembler->assembleProduct($rawProduct)),
-                $this->context->language
-            );
-        }
-
-        return $products_for_template;
-    }
-    */
 }
