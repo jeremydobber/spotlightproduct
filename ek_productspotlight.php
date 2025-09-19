@@ -41,7 +41,7 @@ class Ek_ProductSpotlight extends Module
         $this->author = 'Simon Fouilleul';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
-            'min' => '9.0.0.0',
+            'min' => '9.0.0',
             'max' => '9.99.99',
         ];
         $this->bootstrap = true;

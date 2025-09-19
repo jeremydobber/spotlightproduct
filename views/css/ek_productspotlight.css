@@ -7,6 +7,7 @@
 #ek_productspotlight_container {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
   position: relative;
 }
@@ -19,10 +20,12 @@
 #ek_productspotlight_image_container img {
   max-width: 100%;
   height: auto;
+  border-radius: 8px;
 }
 
 #ek_productspotlight_container > .block_content {
   margin-left: 3rem;
+  width: 50%;
 }
 
 #ek_productspotlight_container a {
