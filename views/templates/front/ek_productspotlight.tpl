@@ -24,7 +24,7 @@
         <div id="ek_productspotlight_image_container">
             {if !empty($ek_productspotlight_product.available_date)}
                 <ul class="product-flags js-product-flags">
-                    <li class="badge">{$ek_productspotlight_product.available_date|@date_format:"%Y %B %d"}</li>
+                    <li class="badge">{$ek_productspotlight_product.available_date|date_format:"%Y %B %d"}</li>
                 </ul>
             {/if}
             {if isset($ek_productspotlight_product.cover)}
@@ -37,7 +37,7 @@
                         type="image/webp">{/if}
                     <img class="card-img-top card-img-bottom"
                         src="{$ek_productspotlight_product.cover.bySize.large_default.url}"
-                        alt="{if !empty($ek_productspotlight_product.cover.legend)}{$ek_productspotlight_product.cover.legend}{else}{$ek_productspotlight_product.name|@truncate:30:'...'}{/if}"
+                        alt="{if !empty($ek_productspotlight_product.cover.legend)}{$ek_productspotlight_product.cover.legend}{else}{$ek_productspotlight_product.name|truncate:30:'...'}{/if}"
                         loading="lazy" data-full-size-image-url="{$ek_productspotlight_product.cover.large.url}"
                         width="{$ek_productspotlight_product.cover.bySize.large_default.width}"
                         height="{$ek_productspotlight_product.cover.bySize.large_default.height}" />
