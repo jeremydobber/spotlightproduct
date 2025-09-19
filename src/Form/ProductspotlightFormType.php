@@ -37,7 +37,7 @@ class ProductspotlightFormType extends TranslatorAwareType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $product_list = [];
-        $products = \Product::getNewProducts($this->getTranslator()->getLocale());
+        $products = \Product::getNewProducts((int)$this->getTranslator()->getLocale());
 
         foreach ($products as $product) {
             $product_name = \Product::getProductName($product['id_product']);

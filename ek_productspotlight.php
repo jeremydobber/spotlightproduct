@@ -120,7 +120,7 @@ class Ek_ProductSpotlight extends Module
     protected function getProductDetail()
     {
         $rawProducts = [];
-        $product = new Product(Configuration::get('EK_PRODUCTSPOTLIGHT_PRODUCT'), true, $this->context->language->id);
+        $product = new Product((int) Configuration::get('EK_PRODUCTSPOTLIGHT_PRODUCT'), true, $this->context->language->id);
         array_push($rawProducts, json_decode(json_encode($product), true));
 
         $assembler = new ProductAssembler($this->context);
