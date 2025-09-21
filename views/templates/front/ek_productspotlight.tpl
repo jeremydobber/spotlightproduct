@@ -24,7 +24,7 @@
         <div id="ek_productspotlight_image_container">
             {if !empty($ek_productspotlight_product.available_date)}
                 <ul class="product-flags js-product-flags">
-                    <li class="badge">{$ek_productspotlight_product.available_date|date_format:"%Y %B %d"}</li>
+                    <li class="badge">Megjelenik: {$ek_productspotlight_product.available_date|date_format:"%Y %B %d"}</li>
                 </ul>
             {/if}
             {if isset($ek_productspotlight_product.cover)}

@@ -1,0 +1,1 @@
+This is a simple PrestaShop module compatible with the Hummingbird theme and PrestaShop version 9 and newer. It adds a section to the home page presenting a single product that can be selected on the configuration page from the new products (depends on the definition you set in Prestashop regarding how long a product is considered as being new).
