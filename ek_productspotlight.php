@@ -48,13 +48,13 @@ class Ek_ProductSpotlight extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->trans('Product spotlight', [], 'Modules.Ek_ProductSpotlight.Admin');
-        $this->description = $this->trans('Present a single product in a full width section.', [], 'Modules.Ek_ProductSpotlight.Admin');
+        $this->displayName = $this->trans('Product spotlight', [], 'Modules.Productspotlight.Admin');
+        $this->description = $this->trans('Present a single product in a full width section.', [], 'Modules.Productspotlight.Admin');
 
-        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Ek_ProductSpotlight.Admin');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Productspotlight.Admin');
 
         if (!Configuration::get('EK_PRODUCTSPOTLIGHT_NAME')) {
-            $this->warning = $this->trans('No name provided.', [], 'Modules.Ek_ProductSpotlight.Admin');
+            $this->warning = $this->trans('No name provided.', [], 'Modules.Productspotlight.Admin');
         }
     }
 

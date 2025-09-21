@@ -24,7 +24,7 @@
         <div id="ek_productspotlight_image_container">
             {if !empty($ek_productspotlight_product.available_date)}
                 <ul class="product-flags js-product-flags">
-                    <li class="badge">Megjelenik: {$ek_productspotlight_product.available_date|date_format:"%Y %B %d"}</li>
+                    <li class="badge">{l s='Megjelenik: %date%' sprintf=['%date%' => '{$ek_productspotlight_product.available_date|date_format:"%Y %B %d" %}'] d='Modules.Productspotlight.Shop'}</li>
                 </ul>
             {/if}
             {if isset($ek_productspotlight_product.cover)}
@@ -59,7 +59,7 @@
         <div class="block_content">
             <h2 id="ek_productspotlight_title">{$ek_productspotlight_product.name}</h2>
             {$ek_productspotlight_product.description nofilter}
-            <a class="btn btn-outline-primary btn-with-icon" href="{$ek_productspotlight_product.url}">Megrendelem!</a>
+            <a class="btn btn-outline-primary btn-with-icon" href="{$ek_productspotlight_product.url}">{l s='Megrendelem!' d='Modules.Productspotlight.Shop'}</a>
         </div>
     </div>
 </div>

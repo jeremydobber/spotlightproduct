@@ -46,8 +46,8 @@ class ProductspotlightFormType extends TranslatorAwareType
 
         $builder
             ->add('product', ChoiceType::class, [
-                'label' => $this->trans('Product', 'Modules.Ek_ProductSpotlight.Admin'),
-                'help' => $this->trans('Select the product you want to display.', 'Modules.Ek_ProductSpotlight.Admin'),
+                'label' => $this->trans('Product', 'Modules.Productspotlight.Admin'),
+                'help' => $this->trans('Select the product you want to display.', 'Modules.Productspotlight.Admin'),
                 'choices' => $product_list,
                 'required' => true,
             ]);
