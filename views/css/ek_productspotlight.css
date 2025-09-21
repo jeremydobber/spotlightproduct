@@ -1,6 +1,7 @@
 #ek_productspotlight_block_home {
   height: fit-content;
-  padding: 2rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
   /* box-shadow: inset 0 0 2rem gray; */
 }
 
