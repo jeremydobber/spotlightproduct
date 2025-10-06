@@ -1,8 +1,8 @@
-productspotlight_conf_form:
-  path: /ek_productspotlight/search
+spotlightproduct_conf_form:
+  path: /spotlightproduct/search
   methods: [GET, POST]
   defaults:
-    _controller: 'PrestaShop\Module\Ek_ProductSpotlight\Controller\ProductspotlightController::index'
+    _controller: 'PrestaShop\Module\Spotlightproduct\Controller\SpotlightproductController::index'
     # Needed to work with tab system
-    _legacy_controller: AdminEk_ProductSpotlight
-    _legacy_link: AdminEk_ProductSpotlight
+    _legacy_controller: AdminSpotlightproduct
+    _legacy_link: AdminSpotlightproduct

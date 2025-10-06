@@ -21,7 +21,7 @@
  */
 declare(strict_types=1);
 
-namespace PrestaShop\Module\Ek_ProductSpotlight\Controller;
+namespace PrestaShop\Module\Spotlightproduct\Controller;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -33,11 +33,11 @@ use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class ProductspotlightController extends PrestaShopAdminController
+class SpotlightproductController extends PrestaShopAdminController
 {
     public function index(
         Request $request,
-        #[Autowire(service: 'prestashop.module.ek_productspotlight.form.productspotlight_text_form_data_handler')]
+        #[Autowire(service: 'prestashop.module.spotlightproduct.form.spotlightproduct_text_form_data_handler')]
         FormHandlerInterface $textFormDataHandler
     ): Response {
         $textForm = $textFormDataHandler->getForm();
@@ -49,14 +49,14 @@ class ProductspotlightController extends PrestaShopAdminController
 
             if (empty($errors)) {
                 $this->addFlash('success', $this->trans('Successful update.', [], 'Admin.Notifications.Success'));
-                return $this->redirectToRoute('productspotlight_conf_form');
+                return $this->redirectToRoute('spotlightproduct_conf_form');
             }
 
             $this->addFlashErrors($errors);
         }
 
-        return $this->render('@Modules/ek_productspotlight/views/templates/admin/productspotlight_conf_form.html.twig', [
-            'ProductspotlightForm' => $textForm->createView(),
+        return $this->render('@Modules/spotlightproduct/views/templates/admin/spotlightproduct_conf_form.html.twig', [
+            'SpotlightproductForm' => $textForm->createView(),
         ]);
     }
 }

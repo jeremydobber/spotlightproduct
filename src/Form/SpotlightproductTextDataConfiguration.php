@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace PrestaShop\Module\Ek_ProductSpotlight\Form;
+namespace PrestaShop\Module\Spotlightproduct\Form;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -34,9 +34,9 @@ use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 /**
  * Configuration is used to save data to configuration table and retrieve from it.
  */
-final class ProductspotlightTextDataConfiguration implements DataConfigurationInterface
+final class SpotlightproductTextDataConfiguration implements DataConfigurationInterface
 {
-    public const EK_PRODUCTSPOTLIGHT_PRODUCT = 'EK_PRODUCTSPOTLIGHT_PRODUCT';
+    public const SPOTLIGHTPRODUCT_PRODUCT = 'SPOTLIGHTPRODUCT_PRODUCT';
 
     /**
      * @var ConfigurationInterface
@@ -52,7 +52,7 @@ final class ProductspotlightTextDataConfiguration implements DataConfigurationIn
     {
         $return = [];
 
-        $return['product'] = $this->configuration->get(static::EK_PRODUCTSPOTLIGHT_PRODUCT);
+        $return['product'] = $this->configuration->get(static::SPOTLIGHTPRODUCT_PRODUCT);
         return $return;
     }
 
@@ -61,7 +61,7 @@ final class ProductspotlightTextDataConfiguration implements DataConfigurationIn
         $errors = [];
 
         if ($this->validateConfiguration($configuration)) {
-            $this->configuration->set(static::EK_PRODUCTSPOTLIGHT_PRODUCT, $configuration['product']);
+            $this->configuration->set(static::SPOTLIGHTPRODUCT_PRODUCT, $configuration['product']);
         }
 
         /* Errors are returned here. */

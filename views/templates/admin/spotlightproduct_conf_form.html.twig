@@ -1,15 +1,15 @@
 {% extends '@PrestaShop/Admin/layout.html.twig' %}
 
 {% block content %}
-	{{ form_start(ProductspotlightForm) }}
+	{{ form_start(SpotlightproductForm) }}
 	<div class="card">
 		<h3 class="card-header">
 			<i class="material-icons">settings</i>
-			{{ 'Select spotlight product'|trans({}, 'Modules.Productspotlight.Admin') }}
+			{{ 'Select spotlight product'|trans({}, 'Modules.Spotlightproduct.Admin') }}
 		</h3>
 		<div class="card-body">
 			<div class="form-wrapper">
-				{{ form_widget(ProductspotlightForm) }}
+				{{ form_widget(SpotlightproductForm) }}
 			</div>
 			{# <table class="grid-table">
 				<thead>
@@ -44,5 +44,5 @@
 			</div>
 		</div>
 	</div>
-	{{ form_end(ProductspotlightForm) }}
+	{{ form_end(SpotlightproductForm) }}
 {% endblock %}

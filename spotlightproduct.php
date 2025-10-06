@@ -31,14 +31,14 @@ use PrestaShop\PrestaShop\Adapter\Presenter\Product\ProductListingPresenter;
 use PrestaShop\PrestaShop\Adapter\Product\PriceFormatter;
 use PrestaShop\PrestaShop\Adapter\Product\ProductColorsRetriever;
 
-class Ek_ProductSpotlight extends Module
+class Spotlightproduct extends Module
 {
     public function __construct()
     {
-        $this->name = 'ek_productspotlight';
+        $this->name = 'spotlightproduct';
         $this->tab = 'front_office_features';
         $this->version = '1.0.0';
-        $this->author = 'Simon Fouilleul';
+        $this->author = 'Jeremy Dobberman';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
             'min' => '9.0.0',
@@ -48,13 +48,13 @@ class Ek_ProductSpotlight extends Module
 
         parent::__construct();
 
-        $this->displayName = $this->trans('Product spotlight', [], 'Modules.Productspotlight.Admin');
-        $this->description = $this->trans('Present a single product in a full width section.', [], 'Modules.Productspotlight.Admin');
+        $this->displayName = $this->trans('Spotlightproduct', [], 'Modules.Spotlightproduct.Admin');
+        $this->description = $this->trans('Present a single product in a full width section.', [], 'Modules.Spotlightproduct.Admin');
 
-        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Productspotlight.Admin');
+        $this->confirmUninstall = $this->trans('Are you sure you want to uninstall?', [], 'Modules.Spotlightproduct.Admin');
 
-        if (!Configuration::get('EK_PRODUCTSPOTLIGHT_NAME')) {
-            $this->warning = $this->trans('No name provided.', [], 'Modules.Productspotlight.Admin');
+        if (!Configuration::get('SPOTLIGHTPRODUCT_NAME')) {
+            $this->warning = $this->trans('No name provided.', [], 'Modules.Spotlightproduct.Admin');
         }
     }
 
@@ -73,7 +73,7 @@ class Ek_ProductSpotlight extends Module
             parent::install()
             && $this->registerHook('displayHome')
             && $this->registerHook('actionFrontControllerSetMedia')
-            && Configuration::updateValue('EK_PRODUCTSPOTLIGHT_NAME', 'Product spotlight');
+            && Configuration::updateValue('SPOTLIGHTPRODUCT_NAME', 'Product spotlight');
     }
 
     public function uninstall()
@@ -82,12 +82,12 @@ class Ek_ProductSpotlight extends Module
             parent::uninstall()
             && $this->unregisterHook('displayHome')
             && $this->unregisterHook('actionFrontControllerSetMedia')
-            && Configuration::deleteByName('EK_PRODUCTSPOTLIGHT_NAME');
+            && Configuration::deleteByName('SPOTLIGHTPRODUCT_NAME');
     }
 
     public function getContent()
     {
-        $route = $this->get('router')->generate('productspotlight_conf_form');
+        $route = $this->get('router')->generate('spotlightproduct_conf_form');
         Tools::redirectAdmin($route);
     }
 
@@ -98,18 +98,18 @@ class Ek_ProductSpotlight extends Module
         // dd($product);
 
         $this->context->smarty->assign([
-            'ek_productspotlight_name' => Configuration::get('EK_PRODUCTSPOTLIGHT_NAME'),
-            'ek_productspotlight_product' => $product,
+            'spotlightproduct_name' => Configuration::get('SPOTLIGHTPRODUCT_NAME'),
+            'spotlightproduct_product' => $product,
         ]);
 
-        return $this->display(__FILE__, 'ek_productspotlight.tpl');
+        return $this->display(__FILE__, 'spotlightproduct.tpl');
     }
 
     public function hookActionFrontControllerSetMedia()
     {
         $this->context->controller->registerStylesheet(
-            'ek_productspotlight-style',
-            'modules/' . $this->name . '/views/css/ek_productspotlight.css',
+            'spotlightproduct-style',
+            'modules/' . $this->name . '/views/css/spotlightproduct.css',
             [
                 'media' => 'all',
                 'priority' => 1000,
@@ -120,7 +120,7 @@ class Ek_ProductSpotlight extends Module
     protected function getProductDetail()
     {
         $rawProducts = [];
-        $product = new Product((int) Configuration::get('EK_PRODUCTSPOTLIGHT_PRODUCT'), true, $this->context->language->id);
+        $product = new Product((int) Configuration::get('SPOTLIGHTPRODUCT_PRODUCT'), true, $this->context->language->id);
         array_push($rawProducts, json_decode(json_encode($product), true));
 
         $assembler = new ProductAssembler($this->context);

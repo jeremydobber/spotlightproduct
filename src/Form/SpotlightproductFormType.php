@@ -22,7 +22,7 @@
 
 declare(strict_types=1);
 
-namespace PrestaShop\Module\Ek_ProductSpotlight\Form;
+namespace PrestaShop\Module\Spotlightproduct\Form;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -32,7 +32,7 @@ use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
 
-class ProductspotlightFormType extends TranslatorAwareType
+class SpotlightproductFormType extends TranslatorAwareType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -46,8 +46,8 @@ class ProductspotlightFormType extends TranslatorAwareType
 
         $builder
             ->add('product', ChoiceType::class, [
-                'label' => $this->trans('Product', 'Modules.Productspotlight.Admin'),
-                'help' => $this->trans('Select the product you want to display.', 'Modules.Productspotlight.Admin'),
+                'label' => $this->trans('Product', 'Modules.Spotlightproduct.Admin'),
+                'help' => $this->trans('Select the product you want to display.', 'Modules.Spotlightproduct.Admin'),
                 'choices' => $product_list,
                 'required' => true,
             ]);

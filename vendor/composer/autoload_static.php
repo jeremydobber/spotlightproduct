@@ -9,12 +9,12 @@ class ComposerStaticInitc34babe5a5e4869f9d85e34ebb60a3d3
     public static $prefixLengthsPsr4 = array (
         'P' => 
         array (
-            'PrestaShop\\Module\\Ek_ProductSpotlight\\' => 38,
+            'PrestaShop\\Module\\Spotlightproduct\\' => 35,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PrestaShop\\Module\\Ek_ProductSpotlight\\' => 
+        'PrestaShop\\Module\\Spotlightproduct\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),

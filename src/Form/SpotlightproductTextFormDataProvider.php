@@ -21,7 +21,7 @@
  */
 declare(strict_types=1);
 
-namespace PrestaShop\Module\Ek_ProductSpotlight\Form;
+namespace PrestaShop\Module\Spotlightproduct\Form;
 
 if (!defined('_PS_VERSION_')) {
     exit;
@@ -33,27 +33,27 @@ use PrestaShop\PrestaShop\Core\Form\FormDataProviderInterface;
 /**
  * Provider is responsible for providing form data, in this case, it is returned from the configuration component.
  *
- * Class ProductspotlightTextFormDataProvider
+ * Class SpotlightproductTextFormDataProvider
  */
-class ProductspotlightTextFormDataProvider implements FormDataProviderInterface
+class SpotlightproductTextFormDataProvider implements FormDataProviderInterface
 {
     /**
      * @var DataConfigurationInterface
      */
-    private $ProductspotlightTextDataConfiguration;
+    private $SpotlightproductTextDataConfiguration;
 
-    public function __construct(DataConfigurationInterface $ProductspotlightTextDataConfiguration)
+    public function __construct(DataConfigurationInterface $SpotlightproductTextDataConfiguration)
     {
-        $this->ProductspotlightTextDataConfiguration = $ProductspotlightTextDataConfiguration;
+        $this->SpotlightproductTextDataConfiguration = $SpotlightproductTextDataConfiguration;
     }
 
     public function getData(): array
     {
-        return $this->ProductspotlightTextDataConfiguration->getConfiguration();
+        return $this->SpotlightproductTextDataConfiguration->getConfiguration();
     }
 
     public function setData(array $data): array
     {
-        return $this->ProductspotlightTextDataConfiguration->updateConfiguration($data);
+        return $this->SpotlightproductTextDataConfiguration->updateConfiguration($data);
     }
 }

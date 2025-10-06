@@ -1,17 +1,17 @@
 
 
 {
-  "name": "sfouilleul/ek_productspotlight",
+  "name": "jdobber/spotlightproduct",
   "description": "Product spotlight",
   "license": "AFL-3.0",
   "authors": [
     {
-      "name": "Simon Fouilleul"
+      "name": "Jeremy Dobberman"
     }
   ],
   "autoload": {
     "psr-4": {
-      "PrestaShop\\Module\\Ek_ProductSpotlight\\": "src/"
+      "PrestaShop\\Module\\Spotlightproduct\\": "src/"
     }
   },
   "require": {
