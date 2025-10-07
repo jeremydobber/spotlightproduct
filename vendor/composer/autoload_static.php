@@ -22,6 +22,10 @@ class ComposerStaticInitc34babe5a5e4869f9d85e34ebb60a3d3
 
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
+        'PrestaShop\\Module\\Spotlightproduct\\Controller\\SpotlightproductController' => __DIR__ . '/../..' . '/src/Controller/SpotlightproductController.php',
+        'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductFormType' => __DIR__ . '/../..' . '/src/Form/SpotlightproductFormType.php',
+        'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductTextDataConfiguration' => __DIR__ . '/../..' . '/src/Form/SpotlightproductTextDataConfiguration.php',
+        'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductTextFormDataProvider' => __DIR__ . '/../..' . '/src/Form/SpotlightproductTextFormDataProvider.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

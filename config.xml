@@ -2,7 +2,7 @@
 <module>
     <name>spotlightproduct</name>
     <displayName><![CDATA[Spotlightproduct]]></displayName>
-    <version><![CDATA[1.0.0]]></version>
+    <version><![CDATA[1.0.1]]></version>
     <description><![CDATA[Present a single product in a full width section.]]></description>
     <author><![CDATA[Jeremy Dobberman]]></author>
     <tab><![CDATA[front_office_features]]></tab>

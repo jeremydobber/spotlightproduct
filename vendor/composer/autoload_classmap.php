@@ -7,4 +7,8 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
+    'PrestaShop\\Module\\Spotlightproduct\\Controller\\SpotlightproductController' => $baseDir . '/src/Controller/SpotlightproductController.php',
+    'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductFormType' => $baseDir . '/src/Form/SpotlightproductFormType.php',
+    'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductTextDataConfiguration' => $baseDir . '/src/Form/SpotlightproductTextDataConfiguration.php',
+    'PrestaShop\\Module\\Spotlightproduct\\Form\\SpotlightproductTextFormDataProvider' => $baseDir . '/src/Form/SpotlightproductTextFormDataProvider.php',
 );
