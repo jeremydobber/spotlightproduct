@@ -95,8 +95,6 @@ class Spotlightproduct extends Module
     {
         $product = $this->getProductDetail()[0];
 
-        // dd($product);
-
         $this->context->smarty->assign([
             'spotlightproduct_name' => Configuration::get('SPOTLIGHTPRODUCT_NAME'),
             'spotlightproduct_product' => $product,
