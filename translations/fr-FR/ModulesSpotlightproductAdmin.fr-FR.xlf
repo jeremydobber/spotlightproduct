@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file original="ModulesSpotlightproductAdmin.xlf" source-language="fr-FR" target-language="fr-FR" datatype="plaintext">
+    <body>
+      <trans-unit id="876f23178c29dc2552c0b48bf23cd9bd">
+        <source>Are you sure you want to uninstall?</source>
+        <target>Êtes-vous certain de vouloir désinstaller ?</target>
+      </trans-unit>
+      <trans-unit id="47fc9faa9dcc877793ae2feb7410cf60">
+        <source>No name provided.</source>
+        <target>Nom manquant.</target>
+      </trans-unit>
+      <trans-unit id="0a9c73edc8c83fce946d1cd1aba5d6d7">
+        <source>Present a single product in a full width section.</source>
+        <target>Section en pleine largeur dédiée à la présentation d'un seul produit.</target>
+      </trans-unit>
+      <trans-unit id="deb10517653c255364175796ace3553f">
+        <source>Product</source>
+        <target>Produit</target>
+      </trans-unit>
+      <trans-unit id="22c9897d06e1ef40b315a1640715b7ac">
+        <source>Select spotlight product</source>
+        <target>Choisir le produit phare.</target>
+      </trans-unit>
+      <trans-unit id="36617860612593e9589fd043cd797c39">
+        <source>Select the product you want to display.</source>
+        <target>Sélectionnez le produit que vous souhaitez présenter.</target>
+      </trans-unit>
+      <trans-unit id="b5e3053340f809328d2601f03e08c404">
+        <source>Spotlightproduct</source>
+        <target>Produit phare</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
