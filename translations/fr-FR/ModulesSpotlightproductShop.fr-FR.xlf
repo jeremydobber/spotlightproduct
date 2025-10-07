@@ -4,7 +4,7 @@
     <body>
       <trans-unit id="debce263cf42c4b1c5c09a28cedd3136">
         <source>Order!</source>
-        <target>Commander!</target>
+        <target>Commander !</target>
       </trans-unit>
       <trans-unit id="c8dec3b411b4e0fd92f87a67c4017728">
         <source>Presale</source>
