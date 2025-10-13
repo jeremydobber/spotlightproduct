@@ -57,7 +57,7 @@
                     </picture>
                 {/if}
             </div>
-            <div class="col-md mt-5 mt-md-0 mx-md-5">
+            <div class="col-md text-center text-md-start mt-5 mt-md-0 mx-md-5">
                 <h2>{$spotlightproduct_product.name}</h2>
                 {$spotlightproduct_product.description nofilter}
                 <a class="btn btn-outline-primary btn-with-icon"
