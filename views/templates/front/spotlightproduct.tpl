@@ -29,35 +29,47 @@
                 {/if}
                 {if ($spotlightproduct_product.cover)}
                     <picture>
-                        {if !empty($spotlightproduct_product.cover.bySize.large_default.sources.avif)}
-                            <source srcset="{$spotlightproduct_product.cover.bySize.large_default.sources.avif}"
+                        {if !empty($spotlightproduct_product.cover.bySize.product_main.sources.avif)}
+                            <source
+                                srcset="{$spotlightproduct_product.cover.bySize.product_main.sources.avif} 720w, {$spotlightproduct_product.cover.bySize.medium_default.sources.avif} 452w"
+                                sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             type="image/avif">{/if}
-                        {if !empty($spotlightproduct_product.cover.bySize.large_default.sources.webp)}
-                            <source srcset="{$spotlightproduct_product.cover.bySize.large_default.sources.webp}"
+                        {if !empty($spotlightproduct_product.cover.bySize.product_main.sources.webp)}
+                            <source
+                                srcset="{$spotlightproduct_product.cover.bySize.product_main.sources.webp} 720w, {$spotlightproduct_product.cover.bySize.medium_default.sources.webp} 452w"
+                                sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             type="image/webp">{/if}
-                        <img class="img-fluid w-100 rounded border"
-                            src="{$spotlightproduct_product.cover.bySize.large_default.url}"
+                        <img class="img-fluid w-100 rounded" src="{$spotlightproduct_product.cover.bySize.product_main.url}"
+                            srcset="
+                            {$spotlightproduct_product.cover.bySize.product_main.url} 720w, 
+                            {$spotlightproduct_product.cover.bySize.medium_default.url} 452w"
+                            sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             alt="{if !empty($spotlightproduct_product.cover.legend)}{$spotlightproduct_product.cover.legend}{else}{$spotlightproduct_product.name|truncate:30:'...'}{/if}"
-                            loading="lazy" data-full-size-image-url="{$spotlightproduct_product.cover.large.url}"
-                            width="{$spotlightproduct_product.cover.bySize.large_default.width}"
-                            height="{$spotlightproduct_product.cover.bySize.large_default.height}" />
+                            data-full-size-image-url="{$spotlightproduct_product.cover.product_main_2x.url}"
+                            width="{$spotlightproduct_product.cover.bySize.product_main.width}"
+                            height="{$spotlightproduct_product.cover.bySize.product_main.height}" />
                     </picture>
                 {else}
                     <picture>
                         {if !empty($urls.no_picture_image.bySize.large_default.sources.avif)}
-                            <source srcset="{$urls.no_picture_image.bySize.large_default.sources.avif}" type="image/avif">
+                            <source srcset="{$urls.no_picture_image.bySize.large_default.sources.avif}"
+                                sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
+                                type="image/avif">
                         {/if}
                         {if !empty($urls.no_picture_image.bySize.large_default.sources.webp)}
-                            <source srcset="{$urls.no_picture_image.bySize.large_default.sources.webp}" type="image/webp">
+                            <source srcset="{$urls.no_picture_image.bySize.large_default.sources.webp}"
+                                sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
+                                type="image/webp">
                         {/if}
-                        <img class="img-fluid w-100 rounded border"
-                            src="{$urls.no_picture_image.bySize.large_default.url}" loading="lazy"
+                        <img class="img-fluid w-100 rounded border" src="{$urls.no_picture_image.bySize.large_default.url}"
+                            srcset="{$urls.no_picture_image.bySize.product_main.url} 720w, {$urls.no_picture_image.bySize.medium_default.url} 452w"
+                            sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             width="{$urls.no_picture_image.bySize.large_default.width}"
                             height="{$urls.no_picture_image.bySize.large_default.height}" />
                     </picture>
                 {/if}
             </div>
-            <div class="col-md text-center text-md-start mt-5 mt-md-0 mx-md-5">
+            <div class="col-md text-center text-md-start mt-5 mt-md-0 px-5">
                 <h2>{$spotlightproduct_product.name}</h2>
                 {$spotlightproduct_product.description nofilter}
                 <a class="btn btn-outline-primary btn-with-icon"
