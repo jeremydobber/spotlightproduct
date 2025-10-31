@@ -47,7 +47,8 @@
                             alt="{if !empty($spotlightproduct_product.cover.legend)}{$spotlightproduct_product.cover.legend}{else}{$spotlightproduct_product.name|truncate:30:'...'}{/if}"
                             data-full-size-image-url="{$spotlightproduct_product.cover.product_main_2x.url}"
                             width="{$spotlightproduct_product.cover.bySize.product_main.width}"
-                            height="{$spotlightproduct_product.cover.bySize.product_main.height}" />
+                            height="{$spotlightproduct_product.cover.bySize.product_main.height}" 
+                            fetchpriority=high />
                     </picture>
                 {else}
                     <picture>
@@ -65,7 +66,8 @@
                             srcset="{$urls.no_picture_image.bySize.product_main.url} 720w, {$urls.no_picture_image.bySize.medium_default.url} 452w"
                             sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             width="{$urls.no_picture_image.bySize.large_default.width}"
-                            height="{$urls.no_picture_image.bySize.large_default.height}" />
+                            height="{$urls.no_picture_image.bySize.large_default.height}"
+                            fetchpriority=high />
                     </picture>
                 {/if}
             </div>
