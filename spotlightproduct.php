@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2025 Jeremy Dobberman
  *
@@ -37,7 +38,7 @@ class Spotlightproduct extends Module
     {
         $this->name = 'spotlightproduct';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.3';
+        $this->version = '1.0.4';
         $this->author = 'Jeremy Dobberman';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
@@ -97,7 +98,7 @@ class Spotlightproduct extends Module
 
         $this->context->smarty->assign([
             'spotlightproduct_name' => Configuration::get('SPOTLIGHTPRODUCT_NAME'),
-            'spotlightproduct_product' => $product,
+            'product' => $product,
         ]);
 
         return $this->display(__FILE__, 'spotlightproduct.tpl');

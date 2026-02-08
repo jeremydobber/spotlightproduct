@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2025 Jeremy Dobberman
  *
@@ -31,13 +32,20 @@ if (!defined('_PS_VERSION_')) {
 use PrestaShopBundle\Form\Admin\Type\TranslatorAwareType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Db;
+use DbQuery;
 
 class SpotlightproductFormType extends TranslatorAwareType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $product_list = [];
-        $products = \Product::getNewProducts((int)$this->getTranslator()->getLocale());
+
+        $sql = new DbQuery();
+        $sql->select('*');
+        $sql->from('product', 'p');
+
+        $products = Db::getInstance()->executeS($sql);
 
         foreach ($products as $product) {
             $product_name = \Product::getProductName($product['id_product']);

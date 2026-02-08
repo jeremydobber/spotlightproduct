@@ -22,33 +22,28 @@
     <div class="container">
         <div class="row align-items-center justify-content-between py-5">
             <div class="col-md img-fluid position-relative">
-                {if ($spotlightproduct_product.available_date != "0000-00-00")}
-                    <ul class="product-flags js-product-flags">
-                        <li class="badge">{l s='Presale' d='Modules.Spotlightproduct.Shop'}</li>
-                    </ul>
-                {/if}
-                {if ($spotlightproduct_product.cover)}
+                {include file='catalog/_partials/product-flags.tpl'}
+
+                {if ($product.cover)}
                     <picture>
-                        {if !empty($spotlightproduct_product.cover.bySize.product_main.sources.avif)}
+                        {if !empty($product.cover.bySize.product_main.sources.avif)}
                             <source
-                                srcset="{$spotlightproduct_product.cover.bySize.product_main.sources.avif} 720w, {$spotlightproduct_product.cover.bySize.medium_default.sources.avif} 452w"
+                                srcset="{$product.cover.bySize.product_main.sources.avif} 720w, {$product.cover.bySize.medium_default.sources.avif} 452w"
                                 sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             type="image/avif">{/if}
-                        {if !empty($spotlightproduct_product.cover.bySize.product_main.sources.webp)}
+                        {if !empty($product.cover.bySize.product_main.sources.webp)}
                             <source
-                                srcset="{$spotlightproduct_product.cover.bySize.product_main.sources.webp} 720w, {$spotlightproduct_product.cover.bySize.medium_default.sources.webp} 452w"
+                                srcset="{$product.cover.bySize.product_main.sources.webp} 720w, {$product.cover.bySize.medium_default.sources.webp} 452w"
                                 sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             type="image/webp">{/if}
-                        <img class="img-fluid w-100 rounded" src="{$spotlightproduct_product.cover.bySize.product_main.url}"
+                        <img class="img-fluid w-100 rounded" src="{$product.cover.bySize.product_main.url}"
                             srcset="
-                            {$spotlightproduct_product.cover.bySize.product_main.url} 720w, 
-                            {$spotlightproduct_product.cover.bySize.medium_default.url} 452w"
+                            {$product.cover.bySize.product_main.url} 720w, 
+                            {$product.cover.bySize.medium_default.url} 452w"
                             sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
-                            alt="{if !empty($spotlightproduct_product.cover.legend)}{$spotlightproduct_product.cover.legend}{else}{$spotlightproduct_product.name|truncate:30:'...'}{/if}"
-                            data-full-size-image-url="{$spotlightproduct_product.cover.product_main_2x.url}"
-                            width="{$spotlightproduct_product.cover.bySize.product_main.width}"
-                            height="{$spotlightproduct_product.cover.bySize.product_main.height}" 
-                            fetchpriority=high />
+                            alt="{if !empty($product.cover.legend)}{$product.cover.legend}{else}{$product.name|truncate:30:'...'}{/if}"
+                            width="{$product.cover.bySize.product_main.width}"
+                            height="{$product.cover.bySize.product_main.height}" fetchpriority=high />
                     </picture>
                 {else}
                     <picture>
@@ -66,16 +61,15 @@
                             srcset="{$urls.no_picture_image.bySize.product_main.url} 720w, {$urls.no_picture_image.bySize.medium_default.url} 452w"
                             sizes="(min-width: 1200px) 720px, (min-width: 768px) 452px, (min-width: 477px) 720px, 452px"
                             width="{$urls.no_picture_image.bySize.large_default.width}"
-                            height="{$urls.no_picture_image.bySize.large_default.height}"
-                            fetchpriority=high />
+                            height="{$urls.no_picture_image.bySize.large_default.height}" fetchpriority=high />
                     </picture>
                 {/if}
             </div>
             <div class="col-md text-center text-md-start mt-5 mt-md-0 px-5">
-                <h2>{$spotlightproduct_product.name}</h2>
-                {$spotlightproduct_product.description nofilter}
+                <h2>{$product.name}</h2>
+                {$product.description nofilter}
                 <a class="btn btn-outline-primary btn-with-icon"
-                    href="{$spotlightproduct_product.url}">{l s='Order!' d='Modules.Spotlightproduct.Shop'}</a>
+                    href="{$product.url}">{l s='Order!' d='Modules.Spotlightproduct.Shop'}</a>
             </div>
         </div>
     </div>

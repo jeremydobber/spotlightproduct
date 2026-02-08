@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright since 2025 Jeremy Dobberman
  *
@@ -37,6 +38,10 @@ use PrestaShop\PrestaShop\Core\ConfigurationInterface;
 final class SpotlightproductTextDataConfiguration implements DataConfigurationInterface
 {
     public const SPOTLIGHTPRODUCT_PRODUCT = 'SPOTLIGHTPRODUCT_PRODUCT';
+    public const SPOTLIGHTPRODUCT_NEW = 'SPOTLIGHTPRODUCT_NEW';
+    public const SPOTLIGHTPRODUCT_PRESALE = 'SPORTLIGHTPRODUCT_PRESALE';
+    public const SPOTLIGHTPRODUCT_CUSTOM = 'SPOTLIGHTPRODUCT_CUSTOM';
+    public const BADGE_MAX_LENGTH = 16;
 
     /**
      * @var ConfigurationInterface
@@ -53,6 +58,7 @@ final class SpotlightproductTextDataConfiguration implements DataConfigurationIn
         $return = [];
 
         $return['product'] = $this->configuration->get(static::SPOTLIGHTPRODUCT_PRODUCT);
+
         return $return;
     }
 
@@ -75,6 +81,15 @@ final class SpotlightproductTextDataConfiguration implements DataConfigurationIn
      */
     public function validateConfiguration(array $configuration): bool
     {
-        return isset($configuration['product']);
+
+        if (!isset($configuration['product'])) {
+            return false;
+        };
+
+        if (isset($configuration['badge_custom']) && (strlen($configuration['badge_custom']) > static::BADGE_MAX_LENGTH)){
+            return false;
+        }
+
+        return true;
     }
 }
